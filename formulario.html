@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Indietex</title>
+		<meta charset="UTF-8">
+		<link rel="StyleSheet" href="practicalibre.css" type="text/css">
+		<link rel="shortcut icon" href="logo-favicon.png" type="image/png">
+		<style>
+			div.contenedor	{background-color:gray;
+							border-radius:50px;
+							padding:30px;
+
+			}
+			
+			div.contenedor h1	{color:red;
+								font-size:40px;
+								margin-bottom:10px;
+			}
+			
+			input {margin-bottom:20px;
+			
+			}
+			
+			select {margin-bottom:20px;
+			
+			}
+			
+			span	{background-color:white;
+					border-radius:20px;
+					font-size:200px;
+					padding:5px;
+					
+			}
+		</style>
+	</head>
+	
+	<body onload="iniciarCronometro()">
+		<div class="contenedor">
+			<form>
+				<h1>Regístrese para tener una oportunidad de probar la BETA de MOUSE.</h1>
+				<p>País</p>
+				<select name="pais">
+					<optgroup label="Europa">
+						<option value="01">España</option>
+						<option value="02">Francia</option>
+						<option value="03">Italia</option>
+						<option value="04">Alemania</option>
+						<option value="05">Rusia</option>
+					</optgroup>			
+					<optgroup label="Asia">
+						<option value="06">China</option>
+						<option value="07">Japón</option>
+						<option value="08">Corea del Sur</option>
+					</optgroup>
+					<optgroup label="América">
+						<option value="09">EEUU</option>
+						<option value="10">México</option>
+						<option value="11">Argentina</option>
+						<option value="12">Perú</option>
+					</optgroup>
+				</select>
+				<p>Fecha de nacimiento</p>
+				<input type="date" name="fecha de nacimiento" min="1900-01-01" max="2022-11-02" required />
+				<p>Email:</p>
+				<input type="email" name="email" size="60" maxlength="60" required placeholder="tuemail@example.com" />
+				<details>
+					<summary>Opciones</summary>
+					<p><input type="checkbox" value="si" name="enviaremail" checked>Enviar ofertas y promociones a mi dirección de e-mail.</p>
+				</details>
+				<input type="submit" onclick="correcto()"> <input type="reset" value="Borrar">
+			</form>
+			<div class="cronometro">
+				<p>Por motivos de seguridad debe rellenar el formulario antes de que se acabe el tiempo:</p>
+				<br />
+				<span id="cronometro">500</span>
+			</div>
+			<script>
+				var i=500
+				function iniciarCronometro() {
+					interval = setInterval(contar, 1000);
+				}
+				
+				function contar() {
+					i = i - 1;
+					document.getElementById("cronometro").innerHTML = i;
+					if(i==0) {
+						window.close()
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>
